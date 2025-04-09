@@ -1,6 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
+const PORT = process.env.PORT ?? 5001;
+const dev_server_url = `${process.env.LOCAL_API_URL} `;
+const production_server_url = `${process.env.PROD_API_URL} `;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   app.setGlobalPrefix('api');
